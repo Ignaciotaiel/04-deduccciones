@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Empleado {
+private:
+    string nombre;
+    string apellido;
+    string domicilio;
+    int cantidadHijos;
+    int sueldoBasico;
+    int antiguedad;
+
+public:
+    Empleado(string n, string a, string d, int c, int s, int an);
+    float jubilaciones();
+    float obraSociales();
+    float INSSJP();
+};
+
+Empleado::Empleado(string n, string a, string d, int c, int s, int an) {
+    nombre = n;
+    apellido = a;
+    domicilio = d;
+    cantidadHijos = c;
+    sueldoBasico = s;
+    antiguedad = an;
+}
+
+float Empleado::jubilaciones() {
+    return (0.11 * sueldoBasico);
+}
+
+float Empleado::obraSociales() {
+    return (0.3 * sueldoBasico);
+}
+
+float Empleado::INSSJP() {
+    return (0.3 * sueldoBasico);
+}
+
+int main() {
+    Empleado empleado("Juan", "Rodriguez", "Peralta ramos", 3, 900000, 12);
+
+    float jubilaciones = empleado.jubilaciones();
+    float obraSociales = empleado.obraSociales();
+    float inssjp = empleado.INSSJP();
+
+    cout << "Jubilaciones: $" << jubilaciones << endl;
+    cout << "Obra Sociales: $" << obraSociales << endl;
+    cout << "INSSJP: $" << inssjp << endl;
+
+    return 0;
+}
